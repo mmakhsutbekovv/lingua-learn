@@ -1,0 +1,57 @@
+# Compiled Go binaries
+# Add your specific binary names if they are consistent
+lingua-learn.exe
+lingua-learn
+*.exe
+*.test
+
+# Go module vendor directory (if you ever run `go mod vendor`)
+/vendor/
+
+# Local environment configuration files
+.env
+.env.*
+!/.env.example # If you have an example .env file you WANT to commit
+
+# IDE and editor specific files
+.vscode/
+.idea/
+*.iml
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS generated files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Log files
+*.log
+logs/
+*.log.*
+
+# Temporary files from testing or local scripts
+temp_*.json
+output/
+build/
+dist/
+
+# Coverage data
+*.out
+coverage.txt
+
+# If you use delve debugger
+.dlv/
+
+# Docker-related files if they are specific to local dev and not part of the reproducible build
+# (Dockerfile itself is usually committed)
+# docker-compose.local.yml
+# .docker/
+
+# Other common temporary or sensitive files
+*.tmp
+*.bak
+*.swp
