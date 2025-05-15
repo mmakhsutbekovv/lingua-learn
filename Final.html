@@ -1,0 +1,412 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinguaLearn - Language Learning Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1><span>Lingua</span>Learn</h1>
+            </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="#" id="home-link" class="active">Home</a></li>
+                    <li><a href="#" id="courses-link">Courses</a></li>
+                    <li><a href="#" id="dashboard-link">Dashboard</a></li>
+                    <li><a href="#" id="about-link">About</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <button id="login-button" class="btn btn-outline">Log In</button>
+                <button id="register-button" class="btn btn-primary">Sign Up</button>
+                <div id="user-profile" class="user-profile hidden">
+                    <span id="user-name">User</span>
+                    <button id="logout-button" class="btn btn-small">Log out</button>
+                </div>
+            </div>
+            <button class="mobile-menu-button" id="mobile-menu-button">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main id="main-content">
+        <!-- Home Page -->
+        <section id="home-section" class="section active">
+            <div class="hero">
+                <div class="container">
+                    <div class="hero-content">
+                        <h2>Learn a New Language</h2>
+                        <p>Master new languages with interactive lessons, exercises, and personalized learning paths</p>
+                        <button id="get-started-button" class="btn btn-large btn-primary">Get Started</button>
+                    </div>
+                    <div class="hero-image">
+                        <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad" alt="Students learning languages" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="features container">
+                <h2>Why Choose LinguaLearn?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-book"></i>
+                        <h3>Comprehensive Courses</h3>
+                        <p>Learn from structured courses tailored to your proficiency level</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-headphones"></i>
+                        <h3>Audio Pronunciations</h3>
+                        <p>Listen to native speakers and perfect your pronunciation</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-tasks"></i>
+                        <h3>Interactive Exercises</h3>
+                        <p>Practice with quizzes and real-world language applications</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Track Progress</h3>
+                        <p>Monitor your learning journey and track your achievements</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="popular-courses container">
+                <h2>Popular Courses</h2>
+                <div class="courses-grid">
+                    <!-- Course cards will be populated dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Courses Section -->
+        <section id="courses-section" class="section">
+            <div class="container">
+                <h2>Language Courses</h2>
+                <p>Browse our selection of language courses</p>
+
+                <div class="filter-options">
+                    <div class="search-bar">
+                        <input type="search" id="course-search" placeholder="Search courses...">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="all">All Languages</button>
+                        <button class="filter-btn" data-filter="french">French</button>
+                        <button class="filter-btn" data-filter="spanish">Spanish</button>
+                        <button class="filter-btn" data-filter="german">German</button>
+                    </div>
+                </div>
+
+                <div class="level-tabs">
+                    <button class="tab-btn active" data-level="all">All Levels</button>
+                    <button class="tab-btn" data-level="beginner">Beginner</button>
+                    <button class="tab-btn" data-level="intermediate">Intermediate</button>
+                    <button class="tab-btn" data-level="advanced">Advanced</button>
+                </div>
+
+                <div class="all-courses courses-grid">
+                    <!-- Course cards will be populated dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Dashboard Section -->
+        <section id="dashboard-section" class="section">
+            <div class="container">
+                <h2>My Dashboard</h2>
+                <p>Track your progress and manage your learning</p>
+
+                <div class="dashboard-grid">
+                    <div class="dashboard-card profile-card">
+                        <div class="profile-header">
+                            <h3>Profile Information</h3>
+                        </div>
+                        <div class="profile-info">
+                            <p><strong>Name:</strong> <span id="dashboard-name">User Name</span></p>
+                            <p><strong>Email:</strong> <span id="dashboard-email">user@example.com</span></p>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-card stats-card">
+                        <h3>Learning Statistics</h3>
+                        <div class="stats">
+                            <div class="stat">
+                                <div class="stat-value" id="lessons-completed">0</div>
+                                <div class="stat-label">Lessons Completed</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value" id="quizzes-passed">0</div>
+                                <div class="stat-label">Quizzes Passed</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-card vocabulary-card">
+                        <div class="vocabulary-header">
+                            <h3>My Vocabulary</h3>
+                            <button id="add-word-button" class="btn btn-small btn-primary">
+                                <i class="fas fa-plus"></i> Add Word
+                            </button>
+                        </div>
+                        
+                        <div id="add-word-form" class="vocabulary-form hidden">
+                            <div class="form-group">
+                                <label for="new-word">Word</label>
+                                <div class="input-with-button">
+                                    <input type="text" id="new-word" placeholder="Enter word">
+                                    <button id="lookup-word" class="btn btn-small">Look up</button>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="new-translation">Translation</label>
+                                <input type="text" id="new-translation" placeholder="Enter translation or definition">
+                            </div>
+                            <div class="form-group">
+                                <label for="new-notes">Notes (optional)</label>
+                                <textarea id="new-notes" placeholder="Add notes"></textarea>
+                            </div>
+                            <div class="form-buttons">
+                                <button id="cancel-add-word" class="btn btn-outline">Cancel</button>
+                                <button id="save-new-word" class="btn btn-primary">Add Word</button>
+                            </div>
+                        </div>
+
+                        <div id="vocabulary-list" class="vocabulary-list">
+                            <!-- Vocabulary items will be populated dynamically -->
+                            <p id="empty-vocabulary-message">Your vocabulary list is empty. Add words to start learning!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Course Detail Section -->
+        <section id="course-detail-section" class="section">
+            <div class="container">
+                <button id="back-to-courses" class="btn btn-text">
+                    <i class="fas fa-arrow-left"></i> Back to Courses
+                </button>
+
+                <div id="course-header" class="course-header">
+                    <!-- Course header will be populated dynamically -->
+                </div>
+
+                <div class="course-content">
+                    <div class="course-info">
+                        <div id="course-image" class="course-image">
+                            <!-- Course image will be populated dynamically -->
+                        </div>
+                        <div class="course-stats">
+                            <h3>Course Information</h3>
+                            <div class="course-stat">
+                                <div class="stat-icon"><i class="fas fa-book"></i></div>
+                                <div class="stat-details">
+                                    <h4>Total Lessons</h4>
+                                    <p id="total-lessons">0 lessons</p>
+                                </div>
+                            </div>
+                            <div class="course-stat">
+                                <div class="stat-icon"><i class="fas fa-chart-bar"></i></div>
+                                <div class="stat-details">
+                                    <h4>Level</h4>
+                                    <p id="course-level">Beginner</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lessons-list">
+                        <h2>Course Lessons</h2>
+                        <div id="lessons-container">
+                            <!-- Lessons will be populated dynamically -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lesson Section -->
+        <section id="lesson-section" class="section">
+            <div class="progress-bar">
+                <div id="lesson-progress" class="progress-value"></div>
+            </div>
+
+            <div class="container">
+                <div class="lesson-header">
+                    <button id="back-to-course" class="btn btn-text">
+                        <i class="fas fa-arrow-left"></i> <span id="back-course-title">Back to Course</span>
+                    </button>
+                    
+                    <div class="lesson-title">
+                        <h1 id="current-lesson-title">Lesson Title</h1>
+                        <p>Lesson <span id="current-lesson-number">1</span> of <span id="total-course-lessons">10</span></p>
+                    </div>
+
+                    <button id="next-lesson-button" class="btn btn-primary next-button">Next</button>
+                </div>
+
+                <div class="lesson-content-wrapper">
+                    <div id="lesson-content" class="lesson-content">
+                        <!-- Lesson content will be populated dynamically -->
+                    </div>
+
+                    <div id="lesson-exercises" class="lesson-exercises hidden">
+                        <h2>Exercises</h2>
+                        <div id="exercises-container">
+                            <!-- Exercises will be populated dynamically -->
+                        </div>
+                        <button id="check-answers-button" class="btn btn-primary">Check Answers</button>
+                        <div id="exercise-feedback" class="exercise-feedback hidden">
+                            <!-- Feedback will be populated dynamically -->
+                        </div>
+                    </div>
+
+                    <div id="lesson-quiz" class="lesson-quiz hidden">
+                        <h2>Quiz</h2>
+                        <div id="quiz-container">
+                            <!-- Quiz will be populated dynamically -->
+                        </div>
+                        <button id="submit-quiz-button" class="btn btn-primary">Submit Quiz</button>
+                        <div id="quiz-results" class="quiz-results hidden">
+                            <!-- Quiz results will be populated dynamically -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about-section" class="section">
+            <div class="container">
+                <h2>About LinguaLearn</h2>
+                <p>LinguaLearn is a platform dedicated to helping people from all walks of life learn new languages efficiently and effectively.</p>
+                
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>Our Mission</h3>
+                        <p>We believe that language learning should be accessible, engaging, and effective. Our mission is to break down language barriers and connect people across cultures through education.</p>
+                        
+                        <h3>Our Approach</h3>
+                        <p>LinguaLearn combines proven language learning methodologies with modern technology to create an immersive and interactive learning experience. Our courses are designed by language experts and focus on practical, real-world usage.</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f" alt="Students learning in a classroom">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Auth Forms -->
+        <div id="auth-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                
+                <!-- Login Form -->
+                <div id="login-form" class="auth-form">
+                    <h2>Log In</h2>
+                    <form id="login-form-element">
+                        <div class="form-group">
+                            <label for="login-email">Email</label>
+                            <input type="email" id="login-email" required>
+                            <div class="error-message" id="login-email-error"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="login-password">Password</label>
+                            <input type="password" id="login-password" required>
+                            <div class="error-message" id="login-password-error"></div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Log In</button>
+                        <div class="form-footer">
+                            <p>Don't have an account? <a href="#" id="switch-to-register">Sign up</a></p>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- Register Form -->
+                <div id="register-form" class="auth-form hidden">
+                    <h2>Sign Up</h2>
+                    <form id="register-form-element">
+                        <div class="form-group">
+                            <label for="register-name">Name</label>
+                            <input type="text" id="register-name" required>
+                            <div class="error-message" id="register-name-error"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="register-email">Email</label>
+                            <input type="email" id="register-email" required>
+                            <div class="error-message" id="register-email-error"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="register-password">Password</label>
+                            <input type="password" id="register-password" required>
+                            <div class="error-message" id="register-password-error"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="register-confirm-password">Confirm Password</label>
+                            <input type="password" id="register-confirm-password" required>
+                            <div class="error-message" id="register-confirm-password-error"></div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+                        <div class="form-footer">
+                            <p>Already have an account? <a href="#" id="switch-to-login">Log in</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Toast Notification -->
+        <div id="toast" class="toast">
+            <div class="toast-content">
+                <i id="toast-icon" class="fas fa-check-circle"></i>
+                <div class="toast-message" id="toast-message"></div>
+            </div>
+            <span class="close-toast">&times;</span>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2><span>Lingua</span>Learn</h2>
+                    <p>Learn languages the right way</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#" class="footer-home-link">Home</a></li>
+                        <li><a href="#" class="footer-courses-link">Courses</a></li>
+                        <li><a href="#" class="footer-dashboard-link">Dashboard</a></li>
+                        <li><a href="#" class="footer-about-link">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-envelope"></i> mmakhsutbekov@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +7 (705) 540-2733</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 LinguaLearn. Thanks for choosing us.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
